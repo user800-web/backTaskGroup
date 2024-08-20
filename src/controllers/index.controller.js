@@ -25,11 +25,9 @@ const login = async (req, res) => {
     [email, password]
   );
   if (response.rows.length > 0) {
-    // Si existe un usuario con esas credenciales
-    const user = result.rows[0];
+    const user = response.rows[0];
     res.json({ message: "Autenticado/a", user });
   } else {
-    // Si no se encuentra el usuario o la contraseña no coincide
     res.status(401).json({ message: "Invalid email or password" });
   }
   //console.log(response);
