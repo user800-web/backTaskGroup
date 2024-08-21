@@ -1,9 +1,10 @@
 const { Router } = require("express"); //importar función Router desde el módulo llamado express
 const router = Router();
 
-const { getUsers, login } = require("../controllers/index.controller");
+const { login } = require("../controllers/auth.controller");
+const { getUsers } = require("../controllers/user.controller");
 
-router.get("/users", getUsers);
-router.post("/", login);
+router.get("/api/users", getUsers);
+router.post("/api/login", login);
 
 module.exports = router;
